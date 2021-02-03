@@ -1,8 +1,5 @@
 body {
   background: #232433;
-}
-
-main {
   font-family: Roboto, 'sans-serif';
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12,7 +9,7 @@ main {
   align-items: center;
 }
 
-main * {
+* {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -241,8 +238,7 @@ button:focus {
 }
 
 input:focus + span:before {
-  transform: scale(1.2);
-  border: 1px solid #04d9ff;
+  background-color: #adadad;
 }
 
 .seat:not(.occupied):hover {
@@ -269,7 +265,7 @@ input:focus + span:before {
 }
 
 @media screen and (min-width: 700px) {
-  main {
+  body {
     height: 100vh;
   }
   .booking {
