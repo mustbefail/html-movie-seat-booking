@@ -10,20 +10,18 @@ const makeTicketTemplate = (ticket) => {
 };
 
 const parseTicket = (ticket) => {
-  console.log('🚀 ~ file: modal.js ~ line 17 ~ parseTicket ~ ticket', ticket);
   const [row, seat] = ticket.split('_');
   const rowNumber = row.split(' ')[1];
   const seatNumber = seat.split(' ')[1];
   return { seatNumber, rowNumber };
 };
 
-const makeTicketPool = (cart) =>
-  cart
-    .map((ticket) => {
-      const parsedTicket = parseTicket(ticket);
-      return makeTicketTemplate(parsedTicket);
-    })
-    .join('');
+const makeTicketPool = (cart) => cart
+  .map((ticket) => {
+    const parsedTicket = parseTicket(ticket);
+    return makeTicketTemplate(parsedTicket);
+  })
+  .join('');
 
 const makeModal = (state) => {
   const { cart, totalPrice } = state;
@@ -38,7 +36,7 @@ const makeModal = (state) => {
       ${makeTicketPool(cart) || 'No tickets selected'}
       </div>
       <div class="footer">
-      <a class="btn-green" href="#"><span>Total: $${totalPrice}</span></a>
+      <a class="btn-green" href="#"><span>Total: $${totalPrice || 0}</span></a>
       </div>
     </div>
   `;
